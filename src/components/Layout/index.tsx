@@ -11,7 +11,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className=" absolute min-h-screen w-full bg-cover bg-center bg-no-repeat bg-[url('./assets/images/background.jpg')]">
       <Header navlinks={navlinks} />
-      <main className="px-8">{children}</main>
+      <main className="px-24">{children}</main>
     </div>
   );
 };
