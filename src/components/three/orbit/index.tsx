@@ -3,10 +3,10 @@ import {
   Color,
   Mesh,
   Line,
-  LineBasicMaterial,
   EllipseCurve,
   BufferGeometry,
-  Float32BufferAttribute,
+  PointsMaterial,
+  LineBasicMaterial,
 } from "three";
 
 const Orbit = (props: any) => {
@@ -29,7 +29,10 @@ const Orbit = (props: any) => {
 
     const points = curve.getPoints(100); // Increase number of points for smoother curve
     const geometry = new BufferGeometry().setFromPoints(points); // Create BufferGeometry from points
-    const material = new LineBasicMaterial({ color: props.color });
+    //center the ellipse
+    geometry.translate(0, 0, 0);
+    //point material
+    const material = new PointsMaterial({ color: props.color });
     const ellipse = new Line(geometry, material);
 
     mesh.add(ellipse);
@@ -41,11 +44,10 @@ const Orbit = (props: any) => {
 
   return (
     <mesh {...props} ref={meshRef}>
-      <meshStandardMaterial
-        color={new Color(props.color)}
-        transparent
-        opacity={0.5}
-      />
+      {/* Particles */}
+      <points>
+        <pointsMaterial color={new Color(0xff0000)} size={0.1} />
+      </points>
     </mesh>
   );
 };
