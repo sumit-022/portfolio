@@ -1,7 +1,6 @@
 import { Mesh, Color } from "three";
 import { useEffect, useRef } from "react";
 import { useTexture, Decal } from "@react-three/drei";
-import { Texture } from "three";
 
 const Planet = ({
   orbit,
@@ -50,8 +49,8 @@ const Planet = ({
       <meshPhongMaterial color={new Color(props.color)} />
       <Decal
         position={[0, 0, 0]}
-        rotation={[Math.PI / 2, (3 * Math.PI) / 6, Math.PI]}
-        scale={1}
+        rotation={[-Math.PI / 6, (3 * Math.PI) / 6, -Math.PI / 2]}
+        scale={0.8}
         map={decal}
       />
     </mesh>

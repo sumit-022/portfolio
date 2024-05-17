@@ -1,7 +1,9 @@
 import React, { Suspense, useEffect, useRef } from "react";
 import { Button, Social } from "@/components/atoms";
 import { gsap } from "gsap";
-import Galaxy from "@/components/three/scenes/galaxy";
+import { Canvas } from "@react-three/fiber";
+import { ResizeObserver } from "@juggle/resize-observer";
+import GalaxyScene from "@/components/three/scenes/galaxy";
 
 //Icons
 import { FaLinkedinIn, FaGithub, FaInstagram } from "react-icons/fa";
@@ -91,7 +93,9 @@ const Hero = () => {
         </div>
       </div>
       <Suspense fallback={null}>
-        <Galaxy />
+        <Canvas resize={{ polyfill: ResizeObserver }}>
+          <GalaxyScene />
+        </Canvas>
       </Suspense>
     </div>
   );

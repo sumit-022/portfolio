@@ -14,6 +14,7 @@ export default {
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],
         rcondensed: ["Roboto Condensed", "sans-serif"],
+        teachers: ["Teachers", "sans-serif"],
       },
     },
   },
